@@ -1,18 +1,26 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <kendo-splitter :panes="panes" :orientation="'horizontal'">
+        <div>Side Navigation</div>
+        <div>Here Content</div>
+      </kendo-splitter>    
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
+  data () {
+      return {
+          panes: [ { collapsible: true, collapsedSize: "5%", max: "30%", size:"20%", min: "5%" }, {} ]
+      }
   }
 }
 </script>
+
+<style scoped>
+  .home {
+    flex: 1;
+  }
+</style>
