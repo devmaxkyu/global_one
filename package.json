@@ -10,6 +10,7 @@
   "dependencies": {
     "@progress/kendo-buttons-vue-wrapper": "^2020.2.827",
     "@progress/kendo-dateinputs-vue-wrapper": "^2020.2.827",
+    "@progress/kendo-dropdowns-vue-wrapper": "^2020.2.827",
     "@progress/kendo-layout-vue-wrapper": "^2020.2.827",
     "@progress/kendo-theme-default": "^4.22.0",
     "@progress/kendo-ui": "^2020.2.617",

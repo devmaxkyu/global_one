@@ -2,17 +2,19 @@
   <div id="app">
     <TopNav/>
     <router-view/>
+    <FooterBar/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import TopNav from '@/components/TopNav.vue'
+import FooterBar from '@/components/FooterBar.vue'
 
 export default {
   name: 'App',
   components: {
-    TopNav
+    TopNav, FooterBar
   }
 }
 </script>
