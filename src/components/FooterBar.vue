@@ -6,8 +6,8 @@
                         :data-text-field="'text'"
                         :data-value-field="'value'">
             </kendo-dropdownlist>
-            <kendo-button class="k-bare" icon="reset" @click="onClick"></kendo-button>
-            <kendo-button class="k-bare" icon="undo" @click="onClick"></kendo-button>
+            <kendo-button class="k-bare" icon="reset"></kendo-button>
+            <kendo-button class="k-bare" icon="undo"></kendo-button>
             <kendo-dropdownlist style="width: auto" v-model="countryCode"
                         :data-source="countrySourceArray"
                         :data-text-field="'text'"
