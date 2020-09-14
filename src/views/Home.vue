@@ -2,7 +2,8 @@
   <div class="home" ref="spliterContainer">
       <kendo-splitter style="height:100%" :panes="panes" :orientation="'horizontal'">
         <div>
-            <SideNav v-on:select-menu="onChangeMenu"/>
+            <!-- <SideNav v-on:select-menu="onChangeMenu"/> -->
+            <SideNavNew v-on:menu-change="onMenuChange"/>
         </div>
         <div>
             <kendo-tabstrip
@@ -21,7 +22,7 @@
 
 <script>
 // @ is an alias to /src
-import SideNav from '@/components/SideNav.vue'
+import SideNavNew from '@/components/SideNavNew.vue'
 
 export default {
   name: 'Home',
@@ -35,17 +36,18 @@ export default {
       }
   },
   methods: {
-    onChangeMenu: function(value){
+    onMenuChange: function(value){
+      console.log('label', value)
       // check if already opened
-      let tabName = `Tab${value}`
-      let existing = this.tabSource.find(it=> it.tabName === tabName)
-      if(!existing){
-        // append tab if no opened
-        this.tabSource.push({ tabName: tabName, content: `Tab${value} content`})
-      }
+      // let tabName = `Tab${value}`
+      // let existing = this.tabSource.find(it=> it.tabName === tabName)
+      // if(!existing){
+      //   // append tab if no opened
+      //   this.tabSource.push({ tabName: tabName, content: `Tab${value} content`})
+      // }
     }
   },
-  components: { SideNav }
+  components: { SideNavNew }
 }
 </script>
 
