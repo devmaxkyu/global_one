@@ -13,6 +13,7 @@
     "@progress/kendo-dropdowns-vue-wrapper": "^2020.2.827",
     "@progress/kendo-layout-vue-wrapper": "^2020.2.827",
     "@progress/kendo-theme-default": "^4.22.0",
+    "@progress/kendo-treeview-vue-wrapper": "^2020.2.912",
     "@progress/kendo-ui": "^2020.2.617",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",

@@ -1,15 +1,15 @@
 <template>
     <div class="menu-container">
         <div class="menu-preview">
-            <SideNavMenuItem v-on:select-menu="onMenuChange" :label="selectedMenu"/>
-            <MenuPreview :label="selectedMenu"/>
+            <SideNavMenuItem v-on:select-menu="onMenuChange" :value="selectedMenu"/>
+            <MenuPreview v-on:select-submenu="onSubMenuChange" :value="selectedMenu"/>
         </div>
         <div class="menu-list">
-            <SideNavMenuItem v-on:select-menu="onMenuChange" label="Menu Item 1"/>
-            <SideNavMenuItem v-on:select-menu="onMenuChange" label="Menu Item 2"/>
-            <SideNavMenuItem v-on:select-menu="onMenuChange" label="Menu Item 3"/>
-            <SideNavMenuItem v-on:select-menu="onMenuChange" label="Menu Item 4"/>
-            <SideNavMenuItem v-on:select-menu="onMenuChange" label="Menu Item 5"/>
+            <SideNavMenuItem v-on:select-menu="onMenuChange" value="Menu Item 1"/>
+            <SideNavMenuItem v-on:select-menu="onMenuChange" value="Menu Item 2"/>
+            <SideNavMenuItem v-on:select-menu="onMenuChange" value="Menu Item 3"/>
+            <SideNavMenuItem v-on:select-menu="onMenuChange" value="Menu Item 4"/>
+            <SideNavMenuItem v-on:select-menu="onMenuChange" value="Menu Item 5"/>
         </div>
     </div>
 </template>
@@ -27,9 +27,12 @@ export default {
     },
     components: { SideNavMenuItem, MenuPreview },
     methods: {
-        onMenuChange: function(label){
-            this.selectedMenu = label
-            this.$emit('menu-change', label)
+        onMenuChange: function(value){
+            this.selectedMenu = value
+            this.$emit('menu-change', value)
+        },
+        onSubMenuChange: function(value){
+            this.$emit('submenu-change', value)
         }
     }
 }
