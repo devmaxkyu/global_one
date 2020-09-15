@@ -31,5 +31,6 @@ export default {
         color: grey;
         padding: 5px;
         cursor: pointer;
+        margin-bottom: -1px;
     }
 </style>

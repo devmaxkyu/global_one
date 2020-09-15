@@ -81,9 +81,12 @@ export default {
 <style scoped>
     .tab-links {
         display: flex;
+        border-bottom: 1px solid red;
     }
     .tab-links >>> .active{
         color: blue !important;
+        border: 1px solid red;
+        border-bottom: 1px solid white;
     }
     .tab-view {
         display: flex;
