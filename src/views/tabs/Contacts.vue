@@ -1,5 +1,5 @@
 <template>
-    <div class="tab-content active" name="contacts">
+    <div class="tab-content" name="contacts">
         <Grid :style="{height: '450px'}"
             :data-items="products"
             :filterable="true"

@@ -1,15 +1,15 @@
 <template>
     <div class="preview-box">
-        <div class="bar">{{value}}</div>
+        <div @click="onClickBar" class="bar">{{value}}</div>
         <div class="tree">
             <kendo-treeview>
                 <li data-expanded="true">
                     <span class="k-icon k-i-folder"></span>
                     Sub Menus
                     <ul>
-                        <li @click="$emit('select-submenu', 'about')"><span class="k-icon k-i-html5"></span>about component</li>
-                        <li @click="$emit('select-submenu', 'contacts')"><span class="k-icon k-i-html5"></span>contacts component</li>
-                        <li @click="$emit('select-submenu', 'portfolio')"><span class="k-icon k-i-html5"></span>portfolio component</li>
+                        <li @click="$emit('select-submenu', 'About')"><span class="k-icon k-i-html5"></span>about component</li>
+                        <li @click="$emit('select-submenu', 'Contacts')"><span class="k-icon k-i-html5"></span>contacts component</li>
+                        <li @click="$emit('select-submenu', 'Portfolio')"><span class="k-icon k-i-html5"></span>portfolio component</li>
                     </ul>
                 </li>
             </kendo-treeview>            
@@ -24,6 +24,10 @@ export default {
     methods: {
         onClick: function(e) {
             console.log('tree item', e)
+        },
+        onClickBar: function() {
+            this.$store.commit('toggleLeftMenuCollapsed')
+            console.log(this.$store.state.leftMenuCollapsed)
         }
     }
 }

@@ -19,7 +19,7 @@ import SideNavMenuItem from '@/components/SideNavMenuItem.vue'
 import MenuPreview from '@/components/MenuPreview.vue'
 
 export default {
-    name: "SideNavNew",
+    name: "SideNavContainer",
     data() {
         return {
             selectedMenu: "Menu Item 1"
@@ -29,10 +29,9 @@ export default {
     methods: {
         onMenuChange: function(value){
             this.selectedMenu = value
-            this.$emit('menu-change', value)
         },
         onSubMenuChange: function(value){
-            this.$emit('submenu-change', value)
+            this.$store.commit('setActiveTabName', value)
         }
     }
 }

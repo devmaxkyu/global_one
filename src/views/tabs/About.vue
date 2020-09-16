@@ -1,5 +1,5 @@
 <template>
-    <div class="tab-content active" name="about">About Page</div>    
+    <div class="tab-content" name="about">About Page</div>    
 </template>
 
 <script>
