@@ -11,6 +11,7 @@ import { TreeView, TreeViewInstaller } from '@progress/kendo-treeview-vue-wrappe
 import Vuex from 'vuex'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
+import { Input } from '@progress/kendo-vue-inputs';
 var _ = require('lodash');
 
 Vue.config.productionTip = false
@@ -20,7 +21,7 @@ Vue.use(ButtonsInstaller)
 Vue.use(DropdownsInstaller)
 Vue.use(TreeViewInstaller)
 Vue.use(Vuex)
-
+Vue.component('k-input', Input);
 const requireComponent = require.context(
   // The relative path of the components folder
   './views/tabs',
