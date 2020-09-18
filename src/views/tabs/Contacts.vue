@@ -11,33 +11,33 @@
                 <kendo-button class="k-bare" icon="print" ></kendo-button>
             </div>
             <div>
-                <div class="lr"></div>
-                <kendo-dropdownlist style="margin:0 5px; width:auto;" :data-source="dataSourceArray" :index="0"></kendo-dropdownlist>
-                <kendo-dropdownlist style="margin:0 5px; width:auto;" :data-source="dataSourceArray" :index="0"></kendo-dropdownlist>
-                <kendo-dropdownlist style="margin:0 5px; width:auto;" :data-source="dataSourceArray" :index="0"></kendo-dropdownlist>
-                <div class="lr"></div>
-                <kendo-dropdownlist style="margin:0 5px; width:auto;" :data-source="dataSourceArray" :index="0"></kendo-dropdownlist>
-                <date-picker style="margin:0 5px; width:auto;" v-model="date_obj"></date-picker>
-                <date-picker style="margin:0 5px; width:auto;" v-model="date_obj"></date-picker>
+                <div class="lr" style="margin:5px"></div>
+                <kendo-dropdownlist style="margin:5px; width:auto;" :data-source="dataSourceArray" :index="0"></kendo-dropdownlist>
+                <kendo-dropdownlist style="margin:5px; width:auto;" :data-source="dataSourceArray" :index="0"></kendo-dropdownlist>
+                <kendo-dropdownlist style="margin:5px; width:auto;" :data-source="dataSourceArray" :index="0"></kendo-dropdownlist>
+                <div class="lr" style="margin:5px"></div>
+                <kendo-dropdownlist style="margin:5px; width:auto;" :data-source="dataSourceArray" :index="0"></kendo-dropdownlist>
+                <date-picker style="margin:5px; width:auto;" v-model="date_obj"></date-picker>
+                <date-picker style="margin:5px; width:auto;" v-model="date_obj"></date-picker>
                 <kendo-button class="k-bare" icon="search" ></kendo-button>
             </div>
         </div>
         <div class="hide-panel" v-bind:class="{active: isPanelActive}">
             <div class="content">
                 <div>
-                    <kendo-dropdownlist style="margin:0 5px; width:auto;" :data-source="dataSourceArray" :index="0"></kendo-dropdownlist>
-                    <kendo-dropdownlist style="margin:0 5px; width:auto;" :data-source="dataSourceArray" :index="0"></kendo-dropdownlist>
+                    <kendo-dropdownlist style="margin:5px; width:auto;" :data-source="dataSourceArray" :index="0"></kendo-dropdownlist>
+                    <kendo-dropdownlist style="margin:5px; width:auto;" :data-source="dataSourceArray" :index="0"></kendo-dropdownlist>
                     <k-input ></k-input>
                     <k-input ></k-input>
                 </div>
                 <div>
-                    <kendo-dropdownlist style="margin:0 5px; width:auto;" :data-source="dataSourceArray" :index="0"></kendo-dropdownlist>
-                    <kendo-dropdownlist style="margin:0 5px; width:auto;" :data-source="dataSourceArray" :index="0"></kendo-dropdownlist>
-                    <kendo-dropdownlist style="margin:0 5px; width:auto;" :data-source="dataSourceArray" :index="0"></kendo-dropdownlist>
-                    <k-input ></k-input>
+                    <kendo-dropdownlist style="margin:5px; width:auto;" :data-source="dataSourceArray" :index="0"></kendo-dropdownlist>
+                    <kendo-dropdownlist style="margin:5px; width:auto;" :data-source="dataSourceArray" :index="0"></kendo-dropdownlist>
+                    <kendo-dropdownlist style="margin:5px; width:auto;" :data-source="dataSourceArray" :index="0"></kendo-dropdownlist>
+                    <k-input></k-input>
                 </div>
                 <div>
-                    <kendo-dropdownlist style="margin:0 5px; width:auto;" :data-source="dataSourceArray" :index="0"></kendo-dropdownlist>
+                    <kendo-dropdownlist style="margin:5px; width:auto;" :data-source="dataSourceArray" :index="0"></kendo-dropdownlist>
                     <k-input ></k-input>
                 </div>
             </div>            
@@ -46,18 +46,37 @@
                 <kendo-button @click="togglePanel" class="k-bare" icon="arrow-chevron-down" ></kendo-button>
             </div>
         </div>
-        <Grid :style="{height: '450px', flex: 1}"
-            :data-items="products"
-            :filterable="true"
-            :filter="filter"
-            @filterchange="filterChange"
-            :pageable="true"
-            :skip="skip"
-            :take="take"
-            :total="total"
-            :columns="columns"
-            @pagechange="pageChangeHandler">
-        </Grid>
+        <kendo-splitter style="flex:1; margin: 5px" :panes="panes" :orientation="'horizontal'">
+            <div>
+                <Grid :style="{height: '100%'}"
+                    :data-items="products"
+                    :filterable="true"
+                    :filter="filter"
+                    @filterchange="filterChange"
+                    :pageable="true"
+                    :skip="skip"
+                    :take="take"
+                    :total="total"
+                    :columns="columns"
+                    @pagechange="pageChangeHandler">
+                </Grid>
+            </div>
+            <div>
+                <Grid :style="{height: '100%'}"
+                    :data-items="products"
+                    :filterable="true"
+                    :filter="filter"
+                    @filterchange="filterChange"
+                    :pageable="true"
+                    :skip="skip"
+                    :take="take"
+                    :total="total"
+                    :columns="columns"
+                    @pagechange="pageChangeHandler">
+                </Grid>
+            </div>
+        </kendo-splitter>
+
     </div>    
 </template>
 
@@ -81,10 +100,10 @@ export default {
             },
             columns: [
                 { field: 'ProductID', filterable:false, title: 'ID', width:'50px'},
-                { field: 'ProductName', title: 'Product Name'},
-                { field: 'FirstOrderedOn', filter:'date', title: 'FirstOrderedOn'},
-                { field: 'UnitPrice', filter:'numeric', title: 'UnitPrice'},
-                { field: 'Discontinued', filter:'boolean', title: 'Discontinued'}
+                { field: 'ProductName', filterable:false, title: 'Product Name'},
+                { field: 'FirstOrderedOn', filterable:false, filter:'date', title: 'FirstOrderedOn'},
+                { field: 'UnitPrice', filterable:false, filter:'numeric', title: 'UnitPrice'},
+                { field: 'Discontinued', filterable:false, filter:'boolean', title: 'Discontinued'}
             ],
             dataSourceArray: [
                 'Football',
@@ -96,7 +115,8 @@ export default {
                 'Volleyball'
             ],
             date_obj: new Date(),
-            isPanelActive: false
+            isPanelActive: false,
+            panes: [ { collapsible: true, collapsedSize: "0", scrollable: false, resizable: true }, { collapsible: true, collapsedSize: "0", scrollable: false, resizable: true } ],
         };
     },
     computed: {
@@ -137,9 +157,6 @@ export default {
         togglePanel(){
             this.isPanelActive = !this.isPanelActive
         }
-        // filterRender: function(h, defaultRendering)        {
-        //     return defaultRendering;
-        // }
     },
     mounted() {
         this.dataItems = this.createRandomData(1000);

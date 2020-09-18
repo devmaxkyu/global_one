@@ -29,5 +29,6 @@ export default {
     .icon-font-size {
         font-size: 32px;
         background-color: #628bd0;
+        margin: 1px;
     }
 </style>

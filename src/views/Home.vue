@@ -1,7 +1,7 @@
 <template>
   <div class="home" ref="spliterContainer">
-      <kendo-splitter ref=splitter style="height:100%" :panes="panes" :orientation="'horizontal'">
-        <div>
+      <kendo-splitter ref="splitter" style="height:100%" :panes="panes" :orientation="'horizontal'">
+        <div id="panel1">
             <SideNavContainer/>
         </div>
         <div>
@@ -25,18 +25,23 @@ import TabView from '@/views/TabView.vue'
 
 export default {
   name: 'Home',
-  // data () {
-  //     return {
-  //         panes: [ { collapsible: true, collapsedSize: "32px", max: "30%", size:"20%", min: "44px", scrollable: false, resizable: true }, {} ],
-  //     }
-  // },
+  data () {
+      return {
+          panes: [ { collapsible: true, collapsedSize: "32px", max: "30%", size:"20%", min: "44px", scrollable: false, resizable: true }, {} ],
+      }
+  },
   // methods: {
 
   // },
   components: { SideNavContainer, TabView },
   computed: {
-    panes() {
-      return [ { collapsible: this.$store.state.leftMenuCollapsed, collapsedSize: "32px", max: "30%", size:"20%", min: "44px", scrollable: false, resizable: true }, {} ]
+    leftMenuCollapsed(){
+      return this.$store.state.leftMenuCollapsed
+    }
+  },
+  watch: {
+    leftMenuCollapsed(){
+      console.log(this.$refs.splitter.panes)
     }
   }
 }
@@ -46,6 +51,7 @@ export default {
   .home {
     flex: 1;
   }
+
   .home >>> .k-tabstrip-wrapper {
     height:100%;
   }
