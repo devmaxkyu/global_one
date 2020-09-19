@@ -59,7 +59,7 @@ requireComponent.keys().forEach(fileName => {
 
 const store = new Vuex.Store({
   state: {
-    leftMenuCollapsed: true,
+    leftMenuCollapsed: false,
     activeTabName: "Main",
     tabNameList: ["Main"]
   },

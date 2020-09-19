@@ -27,12 +27,9 @@ export default {
   name: 'Home',
   data () {
       return {
-          panes: [ { collapsible: true, collapsedSize: "32px", max: "30%", size:"20%", min: "44px", scrollable: false, resizable: true }, {} ],
+          panes: [ { collapsed: this.leftMenuCollapsed, collapsible: true, collapsedSize: "32px", max: "30%", size:"20%", min: "44px", scrollable: false, resizable: true }, {} ],
       }
   },
-  // methods: {
-
-  // },
   components: { SideNavContainer, TabView },
   computed: {
     leftMenuCollapsed(){
@@ -41,7 +38,11 @@ export default {
   },
   watch: {
     leftMenuCollapsed(){
-      console.log(this.$refs.splitter.panes)
+      let kendoWidget = this.$refs.splitter.kendoWidget()
+      if(this.leftMenuCollapsed)
+        kendoWidget.collapse('#panel1')
+      else
+        kendoWidget.expand('#panel1')
     }
   }
 }

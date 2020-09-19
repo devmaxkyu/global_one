@@ -27,7 +27,6 @@ export default {
         },
         onClickBar: function() {
             this.$store.commit('toggleLeftMenuCollapsed')
-            console.log(this.$store.state.leftMenuCollapsed)
         }
     }
 }
