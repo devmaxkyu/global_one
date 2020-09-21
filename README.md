@@ -1,5 +1,4 @@
-# global_one
-
+# Kendo Vue UI Demo
 ## Project setup
 ```
 npm install
